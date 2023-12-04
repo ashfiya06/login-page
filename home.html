@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <h3>Welcome <span></span></h3> -->
+    <input type="button" value="logout" onclick="logOut()">
+    <script>
+        let abcd = sessionStorage.getItem("isLoggedin");
+        console.log(abcd);
+        if (abcd !== null) {
+            let obj = JSON.parse(abcd);
+            if (obj.logged === "yes") {
+                let aa = document.createElement("h3");
+                aa.textContent = `welcome ${obj.name}`
+                document.body.append(aa);
+
+            }
+
+        } else {
+            window.location.href = '/login.html'
+
+        }
+        function logOut() {
+            let abcd = sessionStorage.removeItem("isLoggedin");
+            window.location.href = '/login.html'
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
